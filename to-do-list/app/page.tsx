@@ -7,10 +7,9 @@ function ToDoList() {
 
 
     // updates value of newTask in the input on submission
-    const handleInput = (event) =>{
-        setNewTask(event.target.value);
-
-    }
+    const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setNewTask(event.target.value);
+    };
 
     // adds the newTask that was defined from the form submission to the tasks array
     const addTask = () =>{
