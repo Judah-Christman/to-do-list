@@ -2,7 +2,8 @@
 import React, { Component, useState } from "react";
 
 function ToDoList() {
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState<string[]>([]);
+
     const [newTask, setNewTask] = useState("");
 
 
@@ -21,7 +22,7 @@ function ToDoList() {
     }
  
     // creates a new array called updatedTasks and sets it to copy tasks array filtering out the index of the undesireable item, then settin updatedTasks to tasks
-    const removeTask = (index) =>{
+    const removeTask = (index: number) =>{
         const updateTasks = tasks.filter((_, i) => i !== index);
         setTasks(updateTasks);
 
@@ -30,7 +31,7 @@ function ToDoList() {
     }
 
     // decreases the index of item in tasks array
-    const moveTaskUp = (index) =>{
+    const moveTaskUp = (index: number) =>{
         if(index > 0){
             const updateTasks = [...tasks];
             [updateTasks[index], updateTasks[index-1]] = [updateTasks[index-1], updateTasks[index]];
@@ -39,7 +40,7 @@ function ToDoList() {
     }
 
     // increases the index of item in tasks array
-    const moveTaskDown = (index) =>{
+    const moveTaskDown = (index: number) =>{
         if(index < tasks.length -1){
             const updateTasks = [...tasks];
             [updateTasks[index], updateTasks[index+1]] = [updateTasks[index+1], updateTasks[index]];
